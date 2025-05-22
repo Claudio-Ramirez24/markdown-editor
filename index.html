@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editor Markdown con Vista Previa</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-100 h-screen overflow-hidden">
+    <!-- Barra de herramientas -->
+    <div class="toolbar bg-gray-800 p-3 flex gap-4 items-center fixed top-0 left-0 right-0 z-50 shadow-lg
+                md:flex-row md:top-0 md:bottom-auto
+                max-md:flex-col max-md:bottom-0 max-md:top-auto max-md:p-4">
+        <h1 class="text-white text-lg font-semibold mr-auto max-md:mr-0 max-md:mb-2 max-md:text-base">
+             Editor Markdown
+        </h1>
+        <button class="btn bg-blue-500 hover:bg-blue-600 text-white px-5 py-2 rounded-md font-medium 
+                       transition-all duration-300 hover:-translate-y-0.5 
+                       max-md:px-6 max-md:py-3 max-md:text-base" 
+                id="generateBtn">
+            Generar Vista Previa
+        </button>
+        <button class="btn-contrast bg-red-500 hover:bg-red-600 text-white px-5 py-2 rounded-md font-medium 
+                       transition-all duration-300 hover:-translate-y-0.5
+                       max-md:px-6 max-md:py-3 max-md:text-base" 
+                id="contrastBtn">
+            Contrastar Encabezados
+        </button>
+    </div>
+
+    <!-- Contenedor principal -->
+    <div class="container flex h-screen pt-16 gap-0.5
+                max-md:flex-col max-md:pt-0 max-md:pb-32">
+        
+        <!-- Sección del editor -->
+        <div class="editor-section flex-1 flex flex-col bg-white rounded-l-lg overflow-hidden shadow-lg
+                    max-md:rounded-none">
+            <div class="editor-header bg-gray-700 text-white p-3 font-semibold text-base">
+                Editor Markdown
+            </div>
+            <textarea class="editor flex-1 border-none p-5 font-mono text-sm leading-relaxed resize-none 
+                             outline-none bg-gray-50 overflow-y-auto" 
+                      id="markdownEditor" 
+                      placeholder="Escribe tu contenido Markdown aquí...
+
+Ejemplo:
+# Encabezado 1
+## Encabezado 2
+### Encabezado 3
+
+- Lista item 1
+- Lista item 2
+- Lista item 3
+
+1. Lista numerada 1
+2. Lista numerada 2
+3. Lista numerada 3
+
+Este es un párrafo normal."></textarea>
+        </div>
+
+        <!-- Sección de vista previa -->
+        <div class="preview-section flex-1 flex flex-col bg-white rounded-r-lg overflow-hidden shadow-lg
+                    max-md:rounded-none">
+            <div class="preview-header bg-gray-800 text-white p-3 font-semibold text-base">
+                 Vista Previa
+            </div>
+            <div class="preview flex-1 p-5 overflow-y-auto bg-white leading-relaxed" id="preview">
+                <p class="text-gray-500 italic">
+                    Haz clic en "Generar Vista Previa" para ver tu contenido HTML aquí...
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
